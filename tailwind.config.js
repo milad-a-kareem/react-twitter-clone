@@ -4,6 +4,7 @@ module.exports = {
     extend: {
       colors:{
         blue:'#1d9bf0',
+        'dark-blue': '#1a8cd8',
         black:'#14171A',
         'dark-gray':'#657786',
         'light-gray':'#AAB8C2',
@@ -12,7 +13,7 @@ module.exports = {
         white:'#FFFFFF',
       },
       screens: {
-        'short': { 'raw': '(max-height: 600px)' },
+        'short': { 'raw': '(max-height: 630px)' },
         'average': { 'raw': '(max-height: 700px)' },
         // => @media (min-height: 800px) { ... }
       },

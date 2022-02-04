@@ -22,14 +22,29 @@ import {ReactComponent as ExploreO} from '../assets/icons/outline/hash.svg'
 
 import {ReactComponent as MoreO} from '../assets/icons/outline/more.svg'
 
-function NavItem({to, btnText, iconName}) {
-    // let resolved = useResolvedPath(to);
-    const match = useMatch(to);
+import {useDispatch, useSelector} from 'react-redux'
+import { navActions } from '../store/nav-slice'
+import ExtraNav from './ExtraNav';
+
+function NavItem({to, btnText, iconName, badge, dot}) {
+    let resolved = useResolvedPath(to);
+    const match = useMatch({path: resolved.pathname, end:true});
+
+    const isNavOpen = useSelector(state => state.nav.isOpen)
+    const dispatch  = useDispatch()
+
+    const navHandler = () =>{
+        dispatch(navActions.toggle())
+    }
 
   return <>
-  {to ?
-    <Link to={to} className={`hover:bg-black/10 rounded-full flex items-center w-fit p1 my-2 ${iconName==='lists'|| iconName ==='bookmarks'? 'short:hidden':''}`}>
-        <div className='p-2 w-11 h-11 '>
+  {to ? <div className='w-full flex justify-center xl:justify-start'>
+        <Link to={to} className={`relative hover:bg-black/10 rounded-full flex items-center w-fit p-1 my-1 average:mb-[1px] average:mt-0 ${iconName==='lists'|| iconName ==='bookmarks'? 'short:hidden':''}`}>
+        <div className='p-2 w-[42px] h-[42px] relative'>
+            <div className={badge && badge > 0 ? `flex justify-center items-center text-[10px] min-w-[18px] h-[18px] bg-blue right-1 top-1 absolute rounded-full border-white border text-white`:'hidden'}>
+                <span>{badge}</span>
+            </div>
+            <div className={dot ? 'w-[7px] h-[7px] right-2 top-1 absolute rounded-full bg-blue' : 'hidden'}></div>
             {iconName === 'explore' && <ExploreO className={match ? 'stroke-4 stroke-black' : ' fill-black '}/>}
             
             {iconName === 'home' && !match && <HomeO className=' fill-black '/>}
@@ -51,15 +66,16 @@ function NavItem({to, btnText, iconName}) {
             {iconName === 'profile' && match && <ProfileF className=' fill-black '/>}
 
         </div>
-        <div className={`hidden ml-4 mr-3 text-xl xl:flex ${match ? 'font-bold':''}`}><span>{btnText}</span></div>
-    </Link>
-    :
-    <button to={to} className='hover:bg-black/10 rounded-full flex items-center w-fit px-2 my-2'>
-        <div className='p-2 w-11 h-11 '>            
+        <div className={`hidden ml-4 mr-6 text-xl xl:flex ${match ? 'font-bold':''}`}><span>{btnText}</span></div>
+    </Link></div>
+    :<div className='w-full flex justify-center xl:justify-start'>
+        {isNavOpen && <ExtraNav/>}
+    <button onClick={navHandler} className='hover:bg-black/10 rounded-full flex items-center w-fit p-1 my-1 average:mb-[1px] average:mt-0'>
+        <div className='p-2 w-[42px] h-[42px] '>            
             {iconName === 'more' && !match && <MoreO className=' fill-black '/>}
         </div>
-        <div className={`hidden ml-4 mr-3 text-xl xl:flex `}><span>{btnText}</span></div>
-    </button>
+        <div className={`hidden ml-4 mr-6 text-xl xl:flex `}><span>{btnText}</span></div>
+    </button></div>
   }
   </>
 }
