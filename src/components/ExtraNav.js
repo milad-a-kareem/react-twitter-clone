@@ -26,14 +26,14 @@ function ExtraNav() {
     const arr = [
         {to: '/topics', text: 'Topics', icon:<TopicsO/>},
         {to: '/moments', text: 'Moments', icon:<MomentsO/>},
-        {to: '/', text: 'Newsletters', icon:<NewsO/>},
-        {to: '/', text: 'Twitter for Professionals', icon:<RocketO/>},
-        {to: '/', text: 'Twitter Ads', icon:<AdsO/>},
-        {to: '/', text: 'Analytics', icon:<AnalyticsO/>},
-        {to: '/', text: 'Settings and Privacy', icon:<SettingssO/>},
-        {to: '/', text: 'Help Center', icon:<HelpO/>},
-        {to: '/', text: 'Display', icon:<DisplayO/>},
-        {to: '/', text: 'Keyboard Shortcuts', icon:<ShortcutsO/>},
+        {to: '/i/newsletters', text: 'Newsletters', icon:<NewsO/>},
+        {to: '/i/professionals', text: 'Twitter for Professionals', icon:<RocketO/>},
+        {to: 'https://ads.twitter.com/', external:true, text: 'Twitter Ads', icon:<AdsO/>},
+        {to: 'https://analytics.twitter.com/', external:true, text: 'Analytics', icon:<AnalyticsO/>},
+        {to: '/settings', text: 'Settings and Privacy', icon:<SettingssO/>},
+        {to: 'https://help.twitter.com/', external:true, text: 'Help Center', icon:<HelpO/>},
+        {to: '/i/display', text: 'Display', icon:<DisplayO/>},
+        {to: '/i/keyboard_shortcuts', text: 'Keyboard Shortcuts', icon:<ShortcutsO/>},
     ]
 
   return <>
@@ -44,7 +44,7 @@ function ExtraNav() {
         <ExtraNavItem onClick={navHandler} temp text='Bookmarks' to='/bookmarks' icon={<BookmarksO/>}></ExtraNavItem>
         <ExtraNavItem onClick={navHandler} temp text='Lists' to='/lists' icon={<ListsO/>}></ExtraNavItem>
        {arr.map(item=>{
-           return <ExtraNavItem onClick={navHandler} text={item.text} icon={item.icon} to={item.to}></ExtraNavItem>
+           return <ExtraNavItem onClick={navHandler} text={item.text} icon={item.icon} to={item.to} external={item.external ? true : false}></ExtraNavItem>
        })}
        
         
