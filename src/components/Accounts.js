@@ -68,13 +68,7 @@ function Accounts() {
         <div className="rounded-full my-4 hover:bg-black/10">
           <div className="p-4 flex items-center">
             <div className="rounded-full w-10 h-10 bg-blue overflow-clip">
-              <img
-                width="100%"
-                height="100%"
-                src="https://scontent.febl5-1.fna.fbcdn.net/v/t39.30808-1/s320x320/241285199_1538427673180442_9053026322561242168_n.jpg?_nc_cat=108&ccb=1-5&_nc_sid=7206a8&_nc_ohc=0rX1p1QoSrAAX872shk&_nc_ht=scontent.febl5-1.fna&oh=00_AT-aNaGB59KOChXUlmfXI___YI1fpxV3G-HCXSoLfxLu7Q&oe=61FF7DB3"
-                alt=""
-                srcSet=""
-              />
+              <img width="100%" height="100%" src="" alt="" srcSet="" />
             </div>
 
             <div className="hidden xl:flex flex-col justify-center mx-4 ">
