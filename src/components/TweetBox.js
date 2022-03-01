@@ -45,15 +45,41 @@ function TweetBox() {
           </div>
           <div className="flex justify-end items-center gap-3">
             {inputLength > 1 && (
-              <div className="h-5 -rotate-90">
-                <Progress percent={inputLength / limit} />
+              <div className="relative flex justify-center items-center">
+                <div
+                  className={`${
+                    limit - inputLength < 21 ? "h-8" : "h-5"
+                  } -rotate-90 relative`}
+                >
+                  {limit - inputLength > -9 && (
+                    <Progress percent={inputLength / limit} />
+                  )}
+                </div>
+                {limit - inputLength < 21 && (
+                  <div
+                    className={`${
+                      limit - inputLength > -9 && "absolute left-0 top-0"
+                    } text-xs w-full h-full flex justify-center items-center ${
+                      limit - inputLength < 0 && "text-red"
+                    }`}
+                  >
+                    {limit - inputLength}
+                  </div>
+                )}
               </div>
             )}
-            <div className="w-[1px] h-[31px] bg-black/30"></div>
-            <div className="w-6 h-6 flex justify-center items-center rounded-full border border-light-gray/60 hover:bg-blue/10">
-              <PlusIcon className="w-4 fill-blue" />
-            </div>
-            <button className="bg-blue hover:bg-dark-blue p-2 px-4 rounded-full font-bold text-white">
+            {inputLength > 1 && (
+              <div className="w-[1px] h-[31px] bg-black/30"></div>
+            )}
+            {inputLength > 1 && (
+              <div className="w-6 h-6 flex justify-center items-center rounded-full border border-light-gray/60 hover:bg-blue/10">
+                <PlusIcon className="w-4 fill-blue" />
+              </div>
+            )}
+            <button
+              disabled={inputLength < 1}
+              className="disabled:bg-blue/30 bg-blue hover:bg-dark-blue p-2 px-4 rounded-full font-bold text-white"
+            >
               Tweet
             </button>
           </div>

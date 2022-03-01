@@ -1,6 +1,7 @@
 import { ReactComponent as TopTweetsIcon } from "../assets/icons/outline/topTweets.svg";
 
 import MainLeft from "../components/MainLeft";
+import Tweet from "../components/Tweet";
 import TweetBox from "../components/TweetBox";
 
 function Home() {
@@ -16,6 +17,15 @@ function Home() {
           </div>
         </div>
         <TweetBox />
+        <Tweet verified />
+        <Tweet />
+        <Tweet />
+        <Tweet />
+        <Tweet verified />
+        <Tweet />
+        <Tweet />
+        <Tweet />
+        <Tweet verified />
       </MainLeft>
       <div className="hidden lg:flex min-w-[350px] h-full bg-red-400 shrink-0"></div>
     </>

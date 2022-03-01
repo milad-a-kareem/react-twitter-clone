@@ -7,7 +7,7 @@ function MainLeft({ children }) {
     shrink 
     lg:max-w-[600px] 
     lg:w-full 
-    h-full  
+      
     relative 
     border-r 
     border-xlight-gray

@@ -12,6 +12,8 @@ module.exports = {
         "xxlight-gray": "#F5F8FA",
         white: "#FFFFFF",
         "light-red": "#fb9fa8",
+        red: "rgb(244, 33, 46)",
+        green: "rgb(0, 168, 124)",
       },
       screens: {
         short: { raw: "(max-height: 630px)" },
