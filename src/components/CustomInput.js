@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-function CustomInput({ updateLength }) {
+function CustomInput({ updateLength, showHandler }) {
   const limit = 280;
   const [showPlaceholder, setShowPlaceholder] = useState(true);
   const [offset, setOffset] = useState(0);
@@ -52,6 +52,7 @@ function CustomInput({ updateLength }) {
         <div className={placeholderClasses}>What's happening?</div>
         <div className="w-full flex break-words">
           <div
+            onFocus={showHandler}
             onKeyDown={onKeyPressHandler}
             onInput={inputHandler}
             ref={textareaRef}

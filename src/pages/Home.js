@@ -1,14 +1,18 @@
 import { ReactComponent as TopTweetsIcon } from "../assets/icons/outline/topTweets.svg";
-
+import { useEffect } from "react";
 import MainLeft from "../components/MainLeft";
 import Tweet from "../components/Tweet";
 import TweetBox from "../components/TweetBox";
 
 function Home() {
+  useEffect(() => {
+    document.title = "Home / Twitter";
+  }, []);
+
   return (
     <>
       <MainLeft>
-        <div className="backdrop-blur-md w-full sticky top-0 left-0 h-14 bg-white/90 flex justify-between items-center p-4">
+        <div className="backdrop-blur-md w-full sticky top-0 left-0 h-14 bg-white/90 flex justify-between items-center p-4 ">
           <div className="text-xl font-bold">
             <span>Home</span>
           </div>
@@ -27,7 +31,15 @@ function Home() {
         <Tweet />
         <Tweet verified />
       </MainLeft>
-      <div className="hidden lg:flex min-w-[350px] h-full bg-red-400 shrink-0"></div>
+
+      <div className="hidden lg:flex lg:flex-col w-[290px] min-w-[290px] lg2:w-[350px] xl:min-w-[350px]  h-full shrink-0 lg:mr-[10px]">
+        <div className="backdrop-blur-md w-full sticky top-0 left-0 h-14 bg-white/90 flex justify-between items-center py-1">
+          <div className="bg-xlight-gray/90 h-12 w-full rounded-full"></div>
+        </div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </>
   );
 }

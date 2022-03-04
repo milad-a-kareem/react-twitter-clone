@@ -15,24 +15,34 @@ import { useState } from "react";
 function TweetBox() {
   const limit = 280;
   const [inputLength, setInputLength] = useState(0);
+  const [showPrivacy, setShowPrivacy] = useState(false);
+
+  const showPrivacyButton = () => {
+    setShowPrivacy(true);
+  };
 
   const updateState = (newLength) => {
     setInputLength(newLength);
   };
   return (
-    <div className="w-full p-4 flex box-border border-b border-xlight-gray pb-0">
+    <div className="w-full p-4 flex box-border border-b border-xlight-gray pb-0 ">
       <div className="w-[48px] h-[48px] bg-blue rounded-full mr-3 shrink-0"></div>
       <div className="grow flex flex-col ">
-        <CustomInput updateLength={updateState} />
+        <CustomInput
+          updateLength={updateState}
+          showHandler={showPrivacyButton}
+        />
         <div className="w-full border-b border-xlight-gray pb-3">
-          <button className="-ml-3 flex justify-start items-center rounded-full hover:bg-blue/10 px-3 text-blue font-bold gap-2">
-            <div className="w-4 h-4 fill-blue">
-              <EarthIcon />
-            </div>
-            <div>
-              <span>Everyone can reply</span>
-            </div>
-          </button>
+          {showPrivacy && (
+            <button className="-ml-3 flex justify-start items-center rounded-full hover:bg-blue/10 px-3 text-blue font-bold gap-2">
+              <div className="w-4 h-4 fill-blue">
+                <EarthIcon />
+              </div>
+              <div>
+                <span>Everyone can reply</span>
+              </div>
+            </button>
+          )}
         </div>
         <div className="w-full  flex justify-between items-center py-3 ">
           <div className="flex">

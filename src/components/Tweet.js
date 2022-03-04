@@ -10,12 +10,12 @@ import { ReactComponent as VerifiedIcon } from "../assets/icons/verified.svg";
 
 const Tweet = ({ verified }) => {
   return (
-    <div className="p-4 flex justify-start items-start gap-3 hover:bg-xxlight-gray">
-      <div className="w-12 h-12 rounded-full bg-blue shrink-0"></div>
-      <div className="grow flex flex-col justify-start items-start">
-        <div className="flex justify-between items-center h-6 w-full">
+    <div className="p-4 flex justify-start items-start gap-3 hover:bg-xxlight-gray border-b border-xlight-gray">
+      <div className="shrink-0 w-12 h-12 rounded-full bg-blue "></div>
+      <div className=" w-full flex flex-col justify-start items-start">
+        <div className="w-full flex justify-between items-center h-6">
           <div className="flex items-center justify-start gap-1">
-            <div className="flex gap-1 items-center">
+            <div className="flex justify-start gap-1 items-center">
               <span className="font-bold text-black">Display Name</span>
               {verified && (
                 <div className="fill-blue w-5 h-5">
@@ -36,10 +36,13 @@ const Tweet = ({ verified }) => {
           </button>
         </div>
         <div className="py-1">
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
-          using Lorem Ipsum is that it has a more-or-less normal distribution of
-          letters, as opposed to using 'Content here, content here'.
+          <span>
+            It is a long established fact that a reader will be distracted by
+            the readable content of a page when looking at its layout. The point
+            of using Lorem Ipsum is that it has a more-or-less normal
+            distribution of letters, as opposed to using 'Content here, content
+            here'.
+          </span>
         </div>
         <div className="flex justify-between items-center text-dark-gray w-full sm:w-[90%]">
           <button className="group flex items-center gap-1 hover:text-blue ">

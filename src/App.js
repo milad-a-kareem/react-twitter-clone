@@ -1,5 +1,3 @@
-import "./App.css";
-
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 
 import Home from "./pages/Home";
@@ -20,12 +18,12 @@ import TweetModal from "./Modals/TweetModal";
 function App() {
   let location = useLocation();
   return (
-    <div className="w-screen h-screen bg-white">
-      <div className="h-full max-w-[1300px] mx-auto flex justify-center">
-        <div className="w-full h-full flex justify-center">
+    <div className="w-full min-h-screen bg-white  flex justify-center box-border">
+      <div className=" max-w-[1300px] flex justify-center">
+        <div className="w-full min-h-full flex justify-center">
           <Header />
 
-          <main className="w-full md:w-fit md:grow-[2] h-full flex max-w-[1290px] shrink grow lg:w-[990px] ">
+          <main className="w-full md:w-fit md:grow-[2] min-h-full shrink flex  lg:w-[920px] lg2:w-[990px] justify-between ">
             <Routes location={location.state?.isTweetOpen || location}>
               <Route path="/" element={<Navigate to="/home" />} />
               <Route path="/home" element={<Home />} />

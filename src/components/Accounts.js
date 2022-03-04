@@ -16,7 +16,7 @@ function Accounts() {
           onClick={() => {
             setAccountsIsOpen(false);
           }}
-          className="bg-black/0 fixed h-screen w-screen z-10 left-0 top-0"
+          className="bg-black/0 fixed h-screen w-screen z-20 left-0 top-0"
         ></div>
       )}
       <div
@@ -24,7 +24,7 @@ function Accounts() {
         className="max-w-full cursor-pointer relative overflow-visible"
       >
         {isAccountsOpen && (
-          <div className="bg-white rounded-xl h-fit w-[300px] fixed shadow-a bottom-24 z-20 cursor-default ml-1 xl:-ml-6 pb-3">
+          <div className="bg-white rounded-xl h-fit w-[300px] fixed shadow-a bottom-24 z-30 cursor-default ml-1 xl:-ml-6 pb-3">
             <Triangle className="w-[24px] h-4 rotate-180 fill-white absolute bottom-[-11px] left-5 xl:left-1/2 xl:-translate-x-1/2 drop-shadow-a -z-10" />
             <div className="p-4 flex items-center border-b border-xlight-gray/70">
               <div className="rounded-full w-12 h-12 bg-blue overflow-clip">
@@ -60,7 +60,7 @@ function Accounts() {
             </div>
             <div className="w-full p-4 hover:bg-xxlight-gray cursor-pointer">
               <div>
-                <span>Add an existing account</span>
+                <span>Log out @milad_a_kareem</span>
               </div>
             </div>
           </div>
