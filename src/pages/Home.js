@@ -1,4 +1,5 @@
 import { ReactComponent as TopTweetsIcon } from "../assets/icons/outline/topTweets.svg";
+import { ReactComponent as SearchIcon } from "../assets/icons/outline/search.svg";
 import { useEffect } from "react";
 import MainLeft from "../components/MainLeft";
 import Tweet from "../components/Tweet";
@@ -33,8 +34,19 @@ function Home() {
       </MainLeft>
 
       <div className="hidden lg:flex lg:flex-col w-[290px] min-w-[290px] lg2:w-[350px] xl:min-w-[350px]  h-full shrink-0 lg:mr-[10px]">
-        <div className="backdrop-blur-md w-full sticky top-0 left-0 h-14 bg-white/90 flex justify-between items-center py-1">
-          <div className="bg-xlight-gray/90 h-12 w-full rounded-full"></div>
+        <div className="backdrop-blur-md w-full sticky top-0 left-0 h-[53px] bg-white/90 flex justify-between items-center ">
+          <div className="bg-dark-gray/10  h-[45px] w-full rounded-full flex justify-start items-center px-5 gap-4">
+            <div className="w-5 h-5 fill-dark-gray">
+              <SearchIcon />
+            </div>
+            <input
+              className="bg-transparent outline-none p-3"
+              type="text"
+              name=""
+              id=""
+              placeholder="Search Twitter"
+            />
+          </div>
         </div>
         <div></div>
         <div></div>
