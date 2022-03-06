@@ -63,7 +63,7 @@ function Options({ top, right }) {
   return (
     <div
       style={{ top, right }}
-      className={`flex flex-col rounded-[4px] overflow-hidden absolute top-[${top}] right-[${right}] shadow-a z-[60]`}
+      className={`flex flex-col rounded-[4px] overflow-hidden absolute shadow-a z-[60]`}
     >
       <button className="flex items-center gap-3  bg-white  p-4 hover:bg-xxlight-gray font-normal">
         <div className="w-5 h-5 fill-dark-gray">
