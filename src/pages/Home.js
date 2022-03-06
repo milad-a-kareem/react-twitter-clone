@@ -4,6 +4,10 @@ import { useEffect } from "react";
 import MainLeft from "../components/MainLeft";
 import Tweet from "../components/Tweet";
 import TweetBox from "../components/TweetBox";
+import MainRight from "../components/MainRight";
+
+import TrendsForYou from "../components/TrendsForYou";
+import WhoToFollow from "../components/WhoToFollow";
 
 function Home() {
   useEffect(() => {
@@ -33,9 +37,9 @@ function Home() {
         <Tweet verified />
       </MainLeft>
 
-      <div className="hidden lg:flex lg:flex-col w-[290px] min-w-[290px] lg2:w-[350px] xl:min-w-[350px]  h-full shrink-0 lg:mr-[10px]">
-        <div className="backdrop-blur-md w-full sticky top-0 left-0 h-[53px] bg-white/90 flex justify-between items-center ">
-          <div className="bg-dark-gray/10  h-[45px] w-full rounded-full flex justify-start items-center px-5 gap-4">
+      <MainRight>
+        <div className="backdrop-blur-md w-full sticky top-0 left-0 h-[53px] bg-white/90 flex justify-between items-center z-10">
+          <div className="bg-dark-gray/5  h-[45px] w-full rounded-full flex justify-start items-center px-5 gap-4">
             <div className="w-5 h-5 fill-dark-gray">
               <SearchIcon />
             </div>
@@ -48,10 +52,14 @@ function Home() {
             />
           </div>
         </div>
+        <h1 className="h-[14px] w-[14px]"> </h1>
+
+        <TrendsForYou />
+        <WhoToFollow />
+
         <div></div>
         <div></div>
-        <div></div>
-      </div>
+      </MainRight>
     </>
   );
 }
