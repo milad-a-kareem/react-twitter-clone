@@ -11,11 +11,14 @@ import { ReactComponent as PlusIcon } from "../assets/icons/outline/plus.svg";
 import CustomInput from "../components/CustomInput";
 import Progress from "./Progress";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 function TweetBox() {
   const limit = 280;
   const [inputLength, setInputLength] = useState(0);
   const [showPrivacy, setShowPrivacy] = useState(false);
+
+  const user = useSelector((state) => state.user);
 
   const showPrivacyButton = () => {
     setShowPrivacy(true);
@@ -26,7 +29,15 @@ function TweetBox() {
   };
   return (
     <div className="w-full p-4 flex box-border border-b border-xlight-gray pb-0 ">
-      <div className="w-[48px] h-[48px] bg-blue rounded-full mr-3 shrink-0"></div>
+      <div className="w-[48px] h-[48px] bg-blue rounded-full mr-3 shrink-0 overflow-hidden">
+        <img
+          width="100%"
+          height="100%"
+          src={user.profileImage}
+          alt=""
+          srcSet=""
+        />
+      </div>
       <div className="grow flex flex-col ">
         <CustomInput
           updateLength={updateState}
