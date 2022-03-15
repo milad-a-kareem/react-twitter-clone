@@ -9,7 +9,7 @@ function MainRight({ children }) {
   min-w-[290px] 
   lg2:w-[350px] 
   xl:min-w-[350px]  
-  h-full 
+  
   shrink-0 
   lg:mr-[10px]
     `;
