@@ -10,6 +10,9 @@ import img9 from "../assets/images/user(9).jpg";
 import img10 from "../assets/images/user(10).jpg";
 import img11 from "../assets/images/user(11).jpg";
 
+import coding from "../assets/images/coding.jpg";
+import react from "../assets/images/react.png";
+
 const tweets = [
   {
     username: "richard_cruz",
@@ -22,6 +25,7 @@ const tweets = [
     replays: 21,
     retweets: 75,
     likes: 99,
+    images: [coding],
   },
   {
     username: "gary_williams",
@@ -35,6 +39,7 @@ const tweets = [
     replays: 98,
     retweets: 987,
     likes: 12345,
+    images: [],
   },
   {
     username: "john_harvey",
@@ -48,6 +53,7 @@ const tweets = [
     replays: 34,
     retweets: 45,
     likes: 7777,
+    images: [],
   },
   {
     username: "christopher_mcmullen",
@@ -61,6 +67,7 @@ const tweets = [
     replays: 56,
     retweets: 99,
     likes: 9876,
+    images: [],
   },
   {
     username: "clifton_addison",
@@ -74,6 +81,7 @@ const tweets = [
     replays: 657,
     retweets: 2323,
     likes: 1231235,
+    images: [react],
   },
   {
     username: "patrick_hardesty",
@@ -87,6 +95,7 @@ const tweets = [
     replays: 567,
     retweets: 2135,
     likes: 123123213,
+    images: [],
   },
   {
     username: "dennis_hite",
@@ -100,6 +109,7 @@ const tweets = [
     replays: 55,
     retweets: 456,
     likes: 12124,
+    images: [],
   },
   {
     username: "jonathon_graham",
@@ -113,6 +123,7 @@ const tweets = [
     replays: 11,
     retweets: 567,
     likes: 121212,
+    images: [],
   },
   {
     username: "danny_thompson",
@@ -126,6 +137,7 @@ const tweets = [
     replays: 12,
     retweets: 100,
     likes: 234,
+    images: [],
   },
   {
     username: "lydia_reed",
@@ -139,6 +151,7 @@ const tweets = [
     replays: 78,
     retweets: 213,
     likes: 45567,
+    images: [],
   },
   {
     username: "nasira_mansour",
@@ -152,6 +165,7 @@ const tweets = [
     replays: 12,
     retweets: 56,
     likes: 47863,
+    images: [],
   },
 ];
 

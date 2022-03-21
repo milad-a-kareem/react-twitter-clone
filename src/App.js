@@ -17,10 +17,13 @@ import TweetModal from "./Modals/TweetModal";
 
 function App() {
   let location = useLocation();
+  const onScroll = (e) => {
+    console.log(e);
+  };
   return (
     <div className="w-full min-h-screen bg-white  flex justify-center box-border">
-      <div className=" max-w-[1300px] flex justify-center">
-        <div className="w-full min-h-full flex justify-center">
+      <div className="shrink max-w-[1300px] flex justify-center">
+        <div className="shrink w-full min-h-full flex justify-center">
           <Header />
 
           <main className="w-full md:w-fit md:grow-[2] min-h-full shrink flex  lg:w-[920px] lg2:w-[990px] justify-between ">

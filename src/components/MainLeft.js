@@ -2,7 +2,8 @@ import React from "react";
 
 function MainLeft({ children }) {
   const classes = `
-    w-full 
+  min-w-0
+  w-full 
     max-w-[600px]  
     border-r 
     border-xlight-gray

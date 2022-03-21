@@ -1,6 +1,5 @@
 import { ReactComponent as TopTweetsIcon } from "../assets/icons/outline/topTweets.svg";
-import { ReactComponent as SearchIcon } from "../assets/icons/outline/search.svg";
-import { useEffect } from "react";
+import { useEffect, useState, useCallback } from "react";
 import MainLeft from "../components/MainLeft";
 import Tweet from "../components/Tweet";
 import TweetBox from "../components/TweetBox";
@@ -9,16 +8,46 @@ import MainRight from "../components/MainRight";
 import TrendsForYou from "../components/TrendsForYou";
 import WhoToFollow from "../components/WhoToFollow";
 import tweets from "../data/tweets";
+import SearchBar from "../components/SearchBar";
+import FooterLinks from "../components/FooterLinks";
 
 function Home() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [y, setY] = useState(window.scrollY);
+
   useEffect(() => {
     document.title = "Home / Twitter";
+    console.log(document.documentElement.scrollHeight);
   }, []);
+
+  const handleNavigation = useCallback(
+    (e) => {
+      const window = e.currentTarget;
+      if (y > window.scrollY) {
+        console.log("scrolling up");
+        isScrolled && setIsScrolled(false);
+      } else if (y < window.scrollY) {
+        console.log("scrolling down");
+        !isScrolled && setIsScrolled(true);
+      }
+      setY(window.scrollY);
+    },
+    [y]
+  );
+
+  useEffect(() => {
+    setY(window.scrollY);
+    window.addEventListener("scroll", handleNavigation);
+
+    return () => {
+      window.removeEventListener("scroll", handleNavigation);
+    };
+  }, [handleNavigation]);
 
   return (
     <>
       <MainLeft>
-        <div className="backdrop-blur-md w-full sticky top-0 left-0 h-14 bg-white/90 flex justify-between items-center p-4 ">
+        <div className=" backdrop-blur-md w-full sticky top-0 left-0 h-14 bg-white/90 flex justify-between items-center p-4 ">
           <div className="text-xl font-bold">
             <span>Home</span>
           </div>
@@ -26,7 +55,9 @@ function Home() {
             <TopTweetsIcon className="fill-black" />
           </div>
         </div>
-        <TweetBox />
+        <div className="hidden sm:flex">
+          <TweetBox />
+        </div>
         {tweets.map((tweet) => {
           return (
             <Tweet
@@ -38,8 +69,12 @@ function Home() {
       </MainLeft>
 
       <MainRight>
-        <div className="h-full min-h-[1024px]">
-          <div className="flex flex-col sticky top-0 left-0 justify-start ">
+        <div className="h-full min-h-[1024px] flex flex-col shrink-0">
+          <div
+            style={isScrolled ? { top: "-300px" } : { top: "-300px" }}
+            // style={{ top: "-600px" }}
+            className="flex flex-col sticky "
+          >
             <div className="block h-full overflow-y-auto">
               <div
                 className="backdrop-blur-md w-[290px] 
@@ -47,25 +82,14 @@ function Home() {
   lg2:w-[350px] 
   xl:min-w-[350px]   fixed top-0 h-[53px] bg-white/90 flex justify-between items-center z-10"
               >
-                <div className="bg-dark-gray/5  h-[45px] w-full rounded-full flex justify-start items-center px-5 gap-4">
-                  <div className="w-5 h-5 fill-dark-gray">
-                    <SearchIcon />
-                  </div>
-                  <input
-                    className="bg-transparent outline-none p-3"
-                    type="text"
-                    name=""
-                    id=""
-                    placeholder="Search Twitter"
-                  />
-                </div>
+                <SearchBar />
               </div>
               <h1 className="h-[14px] w-[14px]"> </h1>
               <div className="mt-14"></div>
               <TrendsForYou />
               <WhoToFollow />
 
-              <div></div>
+              <FooterLinks />
             </div>
           </div>
         </div>
