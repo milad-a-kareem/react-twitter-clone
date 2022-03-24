@@ -39,10 +39,10 @@ const Tweet = ({
       </div>
       <div className="min-w-0 flex flex-col justify-start items-stretch max-w-full overflow-hidden">
         <div className="max-w-full flex justify-between items-center h-6 shrink overflow-hidden">
-          <div className=" max-w-full shrink flex items-center justify-start gap-1  overflow-hidden">
-            <div className="max-w-full  shrink flex justify-start gap-1 items-center  overflow-hidden">
-              <div className=" max-w-full shrink flex justify-start items-center overflow-hidden">
-                <div className="max-w-full flex shrink  font-bold truncate ">
+          <div className="w-10 grow max-w-full shrink flex items-center justify-start gap-1  overflow-hidden">
+            <div className="  shrink flex justify-start gap-1 items-center  overflow-hidden">
+              <div className="min-w-0 max-w-full gap-[2px] shrink flex justify-start items-center overflow-hidden">
+                <div className=" break-words font-bold truncate ">
                   {display_name}
                 </div>
 
@@ -51,8 +51,8 @@ const Tweet = ({
                     <VerifiedIcon />
                   </div>
                 )}
-                <div className="max-w-full shrink flex  truncate">
-                  <span className="text-dark-gray  break-all inline  shrink-0 truncate">
+                <div className="  truncate">
+                  <span className="text-dark-gray  break-words inline  shrink-0 truncate">
                     @{username}
                   </span>
                 </div>
@@ -79,25 +79,31 @@ const Tweet = ({
         )}
         <div className=" min-w-0 max-w-full shrink flex justify-between items-center text-dark-gray w-full sm:w-[90%]">
           <button className="group flex items-center gap-1 hover:text-blue shrink">
-            <div className="w-9 h-9 p-2 fill-dark-gray rounded-full group-hover:fill-blue group-hover:bg-blue/10">
+            <div className="w-8 h-8 xs:w-9 xs:h-9 p-2 fill-dark-gray rounded-full group-hover:fill-blue group-hover:bg-blue/10">
               <ReplayIcon />
             </div>
-            <div>{customNum(replayss)}</div>
+            <div className="text-sm sm:text-md -translate-x-2 sm:translate-x-0">
+              {customNum(replayss)}
+            </div>
           </button>
           <button className="group flex items-center gap-1 hover:text-green shrink">
-            <div className="w-9 h-9 p-2 fill-dark-gray rounded-full group-hover:fill-green group-hover:bg-green/10">
+            <div className="w-8 h-8 xs:w-9 xs:h-9 p-2 fill-dark-gray rounded-full group-hover:fill-green group-hover:bg-green/10">
               <RetweetIcon />
             </div>
-            <div>{customNum(retweetss)}</div>
+            <div className="text-sm sm:text-md -translate-x-2 sm:translate-x-0">
+              {customNum(retweetss)}
+            </div>
           </button>
           <button className="group flex items-center gap-1 hover:text-red shrink">
-            <div className="w-9 h-9 p-2 fill-dark-gray rounded-full group-hover:fill-red group-hover:bg-red/10">
+            <div className="w-8 h-8 xs:w-9 xs:h-9 p-2 fill-dark-gray rounded-full group-hover:fill-red group-hover:bg-red/10">
               <LikeIcon />
             </div>
-            <div>{customNum(likess)}</div>
+            <div className="text-sm sm:text-md -translate-x-2 sm:translate-x-0">
+              {customNum(likess)}
+            </div>
           </button>
           <button className="group flex items-center gap-1 hover:text-blue shrink">
-            <div className="w-9 h-9 p-2 fill-dark-gray rounded-full group-hover:fill-blue group-hover:bg-blue/10">
+            <div className="w-8 h-8 xs:w-9 xs:h-9 p-2 fill-dark-gray rounded-full group-hover:fill-blue group-hover:bg-blue/10">
               <ShareIcon />
             </div>
           </button>

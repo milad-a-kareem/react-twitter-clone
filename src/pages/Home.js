@@ -17,7 +17,6 @@ function Home() {
 
   useEffect(() => {
     document.title = "Home / Twitter";
-    console.log(document.documentElement.scrollHeight);
   }, []);
 
   const handleNavigation = useCallback(
@@ -36,8 +35,8 @@ function Home() {
   );
 
   useEffect(() => {
-    setY(window.scrollY);
-    window.addEventListener("scroll", handleNavigation);
+    // setY(window.scrollY);
+    // window.addEventListener("scroll", handleNavigation);
 
     return () => {
       window.removeEventListener("scroll", handleNavigation);
@@ -47,9 +46,12 @@ function Home() {
   return (
     <>
       <MainLeft>
-        <div className=" backdrop-blur-md w-full sticky top-0 left-0 h-14 bg-white/90 flex justify-between items-center p-4 ">
-          <div className="text-xl font-bold">
-            <span>Home</span>
+        <div className=" backdrop-blur-md w-full sticky top-0 left-0 h-14 bg-white/90 flex justify-between items-center p-4 z-10">
+          <div className="flex items-center justify-start gap-[26px] ">
+            <div className="w-8 h-8 rounded-full overflow-hidden bg-blue sm:hidden"></div>
+            <div className="text-xl font-bold">
+              <span>Home</span>
+            </div>
           </div>
           <div className="w-[36px] h-[36px] p-2 hover:bg-black/10 rounded-full">
             <TopTweetsIcon className="fill-black" />
@@ -66,13 +68,14 @@ function Home() {
             />
           );
         })}
+        <div className="w-full h-14 flex xs:hidden"></div>
       </MainLeft>
 
       <MainRight>
         <div className="h-full min-h-[1024px] flex flex-col shrink-0">
           <div
-            style={isScrolled ? { top: "-300px" } : { top: "-300px" }}
-            // style={{ top: "-600px" }}
+            // style={isScrolled ? { top: "-300px" } : { top: "-300px" }}
+            style={{ top: "-300px" }}
             className="flex flex-col sticky "
           >
             <div className="block h-full overflow-y-auto">

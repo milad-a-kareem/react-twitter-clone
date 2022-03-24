@@ -8,7 +8,7 @@ function Header() {
   let location = useLocation();
   console.log(location);
   return (
-    <header className="w-full sm:w-fit fixed bottom-0 left-0 sm:static flex grow justify-end sm:h-full z-[50] bg-white">
+    <header className="border-xlight-gray border-t sm:border-t-0 w-full sm:w-fit fixed bottom-0 left-0 sm:static flex grow justify-end sm:h-full z-[50] bg-white">
       <div className="w-full sm:w-fit justify-between border-r sm:h-full border-xlight-gray px-1 xl:px-3 flex sm:justify-end overflow-auto min-w-[88px] xl:w-[285px]">
         <div className="xl:px-3 sm:h-full sm:fixed sm:top-0  flex sm:flex-col items-center justify-between w-full sm:w-fit sm:max-w-[275px] xl:items-start xl:w-[285px]">
           <div className="flex flex-row sm:flex-col w-full items-center justify-between sm:items-start ">

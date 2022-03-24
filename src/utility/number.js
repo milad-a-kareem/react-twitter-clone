@@ -4,10 +4,10 @@ export const customNum = (x) => {
     case x < 0:
       return 0;
 
-    case x >= 0 && x < 10 ** 4:
+    case x >= 0 && x < 10 ** 3:
       return new Intl.NumberFormat().format(x);
 
-    case x >= 10 ** 4 && x < 10 ** 6:
+    case x >= 10 ** 3 && x < 10 ** 6:
       return `${(x / 1000).toFixed(1)}K`;
 
     case x >= 10 ** 6 && x < 10 ** 9:
