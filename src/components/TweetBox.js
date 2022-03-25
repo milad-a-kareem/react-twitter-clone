@@ -55,7 +55,7 @@ function TweetBox() {
             </button>
           )}
         </div>
-        <div className="w-full  flex justify-between items-center py-3 ">
+        <div className="w-full flex-wrap flex justify-between items-center py-3 ">
           <div className="flex">
             <CustomIcon icon={<PictureIcon />} />
             <CustomIcon icon={<GifIcon />} />
@@ -99,7 +99,7 @@ function TweetBox() {
             )}
             <button
               disabled={inputLength < 1}
-              className="disabled:bg-blue/30 bg-blue hover:bg-dark-blue p-2 px-4 rounded-full font-bold text-white"
+              className="disabled:bg-blue/30 bg-blue hover:bg-dark-blue p-2 px-4 rounded-full font-bold text-white fixed top-3 right-3 sm:static"
             >
               Tweet
             </button>
