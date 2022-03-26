@@ -13,6 +13,7 @@ import FooterLinks from "../components/FooterLinks";
 import BackdropBlur from "../components/BackdropBlur";
 import PageTitle from "../components/PageTitle";
 import CircleIconButton from "../components/CircleIconButton";
+import MobileMenuIcon from "../components/MobileMenuIcon";
 
 function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -51,7 +52,7 @@ function Home() {
       <MainLeft>
         <BackdropBlur>
           <div className="flex items-center justify-start gap-[26px] ">
-            <div className="w-8 h-8 rounded-full overflow-hidden bg-blue sm:hidden"></div>
+            <MobileMenuIcon />
             <PageTitle>Home</PageTitle>
           </div>
           <CircleIconButton

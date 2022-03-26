@@ -6,6 +6,7 @@ import MainLeft from "../components/MainLeft";
 import MainRight from "../components/MainRight";
 import SearchBar from "../components/SearchBar";
 import WhoToFollow from "../components/WhoToFollow";
+import covidImage from "../assets/images/covid.jfif";
 
 import { ReactComponent as SettingsIcon } from "../assets/icons/outline/settings.svg";
 import MobileMenuIcon from "../components/MobileMenuIcon";
@@ -27,7 +28,19 @@ function Explore() {
             />
           </div>
         </BackdropBlur>
-        <div className="w-full h-10"></div>
+        <div className="max-w-full relative flex">
+          <img src={covidImage} alt="covid-19" className="w-full" />
+          <div
+            className="absolute top-0 left-0 w-full h-full"
+            style={{
+              background: `linear-gradient(0deg, rgba(0,0,0,0.8) 10%, rgba(1,208,216,0) 80%)`,
+            }}
+          ></div>
+          <div className="absolute bottom-0 left-0 w-full flex flex-col justify-end items-start px-4 py-3 text-white">
+            <div className="text-xs">Event · LIVE</div>
+            <div className="text-2xl font-bold">COVID-19 in Iraq</div>
+          </div>
+        </div>
       </MainLeft>
 
       <MainRight>

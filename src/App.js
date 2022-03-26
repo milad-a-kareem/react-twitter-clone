@@ -24,7 +24,7 @@ function App() {
         <div className="shrink w-full min-h-full flex justify-center">
           <Header />
 
-          <main className="min-w-0 max-w-full w-full  md:grow-[2] min-h-full  flex  md:w-[600px]  lg:w-[920px] lg2:w-[990px] justify-between ">
+          <main className="min-w-0 max-w-full w-full  md:grow-[2] min-h-full  flex   lg:w-[920px] lg2:w-[990px] justify-between ">
             <Routes location={location.state?.isTweetOpen || location}>
               <Route path="/" element={<Navigate to="/home" />} />
               <Route path="/home" element={<Home />} />
