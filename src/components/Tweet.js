@@ -10,6 +10,7 @@ import { ReactComponent as VerifiedIcon } from "../assets/icons/verified.svg";
 
 import { timeConvertor } from "../utility/time";
 import { customNum } from "../utility/number";
+import CircleIconButton from "./CircleIconButton";
 
 const Tweet = ({
   verified,
@@ -37,8 +38,8 @@ const Tweet = ({
           className="w-full h-full"
         />
       </div>
-      <div className="min-w-0 flex flex-col justify-start items-stretch max-w-full overflow-hidden">
-        <div className="max-w-full flex justify-between items-center h-6 shrink overflow-hidden">
+      <div className="min-w-0 flex flex-col justify-start items-stretch max-w-full">
+        <div className="max-w-full flex justify-between items-center h-6 shrink ">
           <div className="w-10 grow max-w-full shrink flex items-center justify-start gap-1  overflow-hidden">
             <div className="  shrink flex justify-start gap-1 items-center  overflow-hidden">
               <div className="min-w-0 max-w-full gap-[2px] shrink flex justify-start items-center overflow-hidden">
@@ -65,9 +66,11 @@ const Tweet = ({
               <span>{t}</span>
             </div>
           </div>
-          <button className="w-9 h-9 p-2 fill-dark-gray rounded-full hover:fill-blue hover:bg-blue/10">
-            <ElipsisIcon />
-          </button>
+          <CircleIconButton
+            color="dark-gray"
+            hoverColor="blue"
+            icon={<ElipsisIcon />}
+          />
         </div>
         <div className="py-1">
           <span>{tweetText}</span>
@@ -78,35 +81,22 @@ const Tweet = ({
           </div>
         )}
         <div className=" min-w-0 max-w-full shrink flex justify-between items-center text-dark-gray w-full sm:w-[90%]">
-          <button className="group flex items-center gap-1 hover:text-blue shrink">
-            <div className="w-8 h-8 xs:w-9 xs:h-9 p-2 fill-dark-gray rounded-full group-hover:fill-blue group-hover:bg-blue/10">
-              <ReplayIcon />
-            </div>
-            <div className="text-sm sm:text-md -translate-x-2 sm:translate-x-0">
-              {customNum(replayss)}
-            </div>
-          </button>
-          <button className="group flex items-center gap-1 hover:text-green shrink">
-            <div className="w-8 h-8 xs:w-9 xs:h-9 p-2 fill-dark-gray rounded-full group-hover:fill-green group-hover:bg-green/10">
-              <RetweetIcon />
-            </div>
-            <div className="text-sm sm:text-md -translate-x-2 sm:translate-x-0">
-              {customNum(retweetss)}
-            </div>
-          </button>
-          <button className="group flex items-center gap-1 hover:text-red shrink">
-            <div className="w-8 h-8 xs:w-9 xs:h-9 p-2 fill-dark-gray rounded-full group-hover:fill-red group-hover:bg-red/10">
-              <LikeIcon />
-            </div>
-            <div className="text-sm sm:text-md -translate-x-2 sm:translate-x-0">
-              {customNum(likess)}
-            </div>
-          </button>
-          <button className="group flex items-center gap-1 hover:text-blue shrink">
-            <div className="w-8 h-8 xs:w-9 xs:h-9 p-2 fill-dark-gray rounded-full group-hover:fill-blue group-hover:bg-blue/10">
-              <ShareIcon />
-            </div>
-          </button>
+          <ReactionButton
+            color="blue"
+            icon={<ReplayIcon />}
+            number={customNum(replayss)}
+          />
+          <ReactionButton
+            color="green"
+            icon={<RetweetIcon />}
+            number={customNum(retweetss)}
+          />
+          <ReactionButton
+            color="red"
+            icon={<LikeIcon />}
+            number={customNum(likess)}
+          />
+          <ReactionButton color="blue" icon={<ShareIcon />} />
         </div>
       </div>
     </div>
@@ -114,3 +104,18 @@ const Tweet = ({
 };
 
 export default Tweet;
+
+function ReactionButton({ color, number, icon }) {
+  const btnClasses = `group flex items-center gap-1 hover:text-${color} shrink`;
+  const iClasses = `w-8 h-8 xs:w-9 xs:h-9 p-2 fill-dark-gray rounded-full group-hover:fill-${color} group-hover:bg-${color}/10`;
+  return (
+    <button className={btnClasses}>
+      <div className={iClasses}>{icon}</div>
+      {number && (
+        <div className="text-sm sm:text-md -translate-x-2 sm:translate-x-0">
+          {number}
+        </div>
+      )}
+    </button>
+  );
+}

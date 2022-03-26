@@ -10,6 +10,9 @@ import WhoToFollow from "../components/WhoToFollow";
 import tweets from "../data/tweets";
 import SearchBar from "../components/SearchBar";
 import FooterLinks from "../components/FooterLinks";
+import BackdropBlur from "../components/BackdropBlur";
+import PageTitle from "../components/PageTitle";
+import CircleIconButton from "../components/CircleIconButton";
 
 function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -46,17 +49,17 @@ function Home() {
   return (
     <>
       <MainLeft>
-        <div className=" backdrop-blur-md w-full sticky top-0 left-0 h-14 bg-white/90 flex justify-between items-center p-4 z-10">
+        <BackdropBlur>
           <div className="flex items-center justify-start gap-[26px] ">
             <div className="w-8 h-8 rounded-full overflow-hidden bg-blue sm:hidden"></div>
-            <div className="text-xl font-bold">
-              <span>Home</span>
-            </div>
+            <PageTitle>Home</PageTitle>
           </div>
-          <div className="w-[36px] h-[36px] p-2 hover:bg-black/10 rounded-full">
-            <TopTweetsIcon className="fill-black" />
-          </div>
-        </div>
+          <CircleIconButton
+            color="black"
+            hoverColor="black"
+            icon={<TopTweetsIcon />}
+          />
+        </BackdropBlur>
         <div className="hidden sm:flex">
           <TweetBox />
         </div>

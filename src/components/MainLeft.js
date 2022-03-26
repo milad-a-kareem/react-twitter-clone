@@ -2,10 +2,10 @@ import React from "react";
 
 function MainLeft({ children }) {
   const classes = `
-  min-w-0
-  w-full 
+    min-w-0
+    w-full 
     max-w-[600px]  
-    border-r 
+    sm:border-r 
     border-xlight-gray
     flex
     flex-col

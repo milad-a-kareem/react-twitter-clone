@@ -17,16 +17,14 @@ import TweetModal from "./Modals/TweetModal";
 
 function App() {
   let location = useLocation();
-  const onScroll = (e) => {
-    console.log(e);
-  };
+
   return (
     <div className="w-full min-h-screen bg-white  flex justify-center box-border">
       <div className="shrink max-w-[1300px] flex justify-center">
         <div className="shrink w-full min-h-full flex justify-center">
           <Header />
 
-          <main className="w-full md:w-fit md:grow-[2] min-h-full shrink flex  lg:w-[920px] lg2:w-[990px] justify-between ">
+          <main className="min-w-0 max-w-full w-full  md:grow-[2] min-h-full  flex  md:w-[600px]  lg:w-[920px] lg2:w-[990px] justify-between ">
             <Routes location={location.state?.isTweetOpen || location}>
               <Route path="/" element={<Navigate to="/home" />} />
               <Route path="/home" element={<Home />} />
@@ -35,6 +33,7 @@ function App() {
               <Route path="/messages" element={<Messages />} />
               <Route path="/bookmarks" element={<Bookmarks />} />
               <Route path="/lists" element={<Lists />} />
+              <Route path="/:username" element={<Profile />} />
               <Route path="/topics" element={<Topics />} />
               <Route path="/moments" element={<Moments />} />
               <Route path="/setttings" element={<Settings />} />
