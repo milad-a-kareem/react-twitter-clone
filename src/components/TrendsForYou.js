@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Trends from "../components/Trends";
 import { ReactComponent as SettingsIcon } from "../assets/icons/outline/settings.svg";
 
-function TrendsForYou() {
+function TrendsForYou({ main }) {
   const DUMMY_TRENDS = [
     {
       id: "001",
@@ -84,13 +84,23 @@ function TrendsForYou() {
       setTrends((prev) => [...prev, ...EXTRA_TRENDS]);
     }
   };
+  const classes = main
+    ? "w-full flex flex-col overflow-hidden"
+    : `bg-dark-gray/5 w-full rounded-2xl flex flex-col overflow-hidden`;
+
   return (
-    <div className="bg-dark-gray/5 w-full rounded-2xl flex flex-col overflow-hidden">
-      <div className="text-xl font-bold w-full px-4 py-3 flex justify-between items-center">
+    <div className={classes}>
+      <div
+        className={
+          "text-xl font-bold w-full px-4 py-3 flex justify-between items-center"
+        }
+      >
         <h2>Trends For You</h2>
-        <button className="w-9 h-9 p-2 hover:bg-black/10 rounded-full">
-          <SettingsIcon />
-        </button>
+        {!main && (
+          <button className="w-9 h-9 p-2 hover:bg-black/10 rounded-full">
+            <SettingsIcon />
+          </button>
+        )}
       </div>
 
       <Trends trends={trends} />

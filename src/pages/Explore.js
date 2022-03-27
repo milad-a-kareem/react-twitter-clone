@@ -10,6 +10,7 @@ import covidImage from "../assets/images/covid.jfif";
 
 import { ReactComponent as SettingsIcon } from "../assets/icons/outline/settings.svg";
 import MobileMenuIcon from "../components/MobileMenuIcon";
+import TrendsForYou from "../components/TrendsForYou";
 
 function Explore() {
   return (
@@ -41,13 +42,14 @@ function Explore() {
             <div className="text-2xl font-bold">COVID-19 in Iraq</div>
           </div>
         </div>
+        <TrendsForYou main />
       </MainLeft>
 
       <MainRight>
-        <div className="h-full min-h-full flex flex-col shrink-0">
+        <div className="h-full min-h-[400px] flex flex-col shrink-0">
           <div
             // style={isScrolled ? { top: "-300px" } : { top: "-300px" }}
-            // style={{ top: "-300px" }}
+            style={{ top: "0px" }}
             className="flex flex-col sticky "
           >
             <div className="block h-full overflow-y-auto">
