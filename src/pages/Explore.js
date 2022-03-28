@@ -43,6 +43,7 @@ function Explore() {
           </div>
         </div>
         <TrendsForYou main />
+        <div className="w-full h-14 flex xs:hidden"></div>
       </MainLeft>
 
       <MainRight>
