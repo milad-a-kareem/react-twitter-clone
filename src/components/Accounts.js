@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 function Accounts() {
   const [isAccountsOpen, setAccountsIsOpen] = useState(false);
   const user = useSelector((state) => state.user);
-  console.log(user);
 
   const clickHandler = () => {
     setAccountsIsOpen(true);

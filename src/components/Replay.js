@@ -11,41 +11,44 @@ import { ReactComponent as VerifiedIcon } from "../assets/icons/verified.svg";
 import { timeConvertor } from "../utility/time";
 import { customNum } from "../utility/number";
 import CircleIconButton from "./CircleIconButton";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import ReactionButton from "./ReactionButton";
 
-const Tweet = ({
-  verified,
-  display_name,
-  username,
-  profileImage,
-  tweetText,
+function Replay({
   time,
   likes,
-  retweets,
   replays,
-  images,
-}) => {
+  retweets,
+  profileImage,
+  display_name,
+  verified,
+  username,
+  replayText,
+  user,
+}) {
+  const me = useSelector((state) => state.user);
   const t = timeConvertor(time);
   const [likess, setLikess] = useState(likes);
   const [replayss, setReplays] = useState(replays);
   const [retweetss, setRetweets] = useState(retweets);
   return (
-    <div className="p-4 flex justify-start items-start gap-3 hover:bg-xxlight-gray border-b border-xlight-gray">
+    <div className=" px-4 py-3 flex justify-start items-start gap-3 hover:bg-xxlight-gray border-b border-xlight-gray">
       <div className="basis-12 shrink-0 w-12 h-12 rounded-full bg-blue overflow-hidden">
         <img
-          src={profileImage}
+          src={user.profileImage}
           alt="profile"
           srcSet=""
           className="w-full h-full"
         />
       </div>
-      <div className="min-w-0 flex flex-col justify-start items-stretch max-w-full">
+      <div className="min-w-0 flex flex-col justify-start items-stretch max-w-full grow">
         <div className="max-w-full flex justify-between items-center h-6 shrink ">
           <div className="w-10 grow max-w-full shrink flex items-center justify-start gap-1  overflow-hidden">
             <div className="  shrink flex justify-start gap-1 items-center  overflow-hidden">
               <div className="min-w-0 max-w-full gap-[2px] shrink flex justify-start items-center overflow-hidden">
                 <div className=" break-words font-bold truncate ">
-                  {display_name}
+                  {user.display_name}
                 </div>
 
                 {verified && (
@@ -55,7 +58,7 @@ const Tweet = ({
                 )}
                 <div className="  truncate">
                   <span className="text-dark-gray  break-words inline  shrink-0 truncate">
-                    @{username}
+                    @{user.username}
                   </span>
                 </div>
               </div>
@@ -73,14 +76,16 @@ const Tweet = ({
             icon={<ElipsisIcon />}
           />
         </div>
-        <div className="py-1">
-          <span>{tweetText}</span>
+        <div className="flex justify-start items-center text-dark-gray">
+          <span>Replaying to </span>
+          <Link to={`/${me.username}`} className="text-blue">
+            @{me.username}
+          </Link>
         </div>
-        {images && images.length > 0 && (
-          <div className="rounded-[15px] overflow-hidden my-2">
-            <img src={images[0]} alt="tweet" srcSet="" className="w-full" />
-          </div>
-        )}
+        <div className="py-1">
+          <span>{replayText}</span>
+        </div>
+
         <div className=" min-w-0 max-w-full shrink flex justify-between items-center text-dark-gray w-full sm:w-[90%]">
           <ReactionButton
             color="blue"
@@ -102,6 +107,6 @@ const Tweet = ({
       </div>
     </div>
   );
-};
+}
 
-export default Tweet;
+export default Replay;

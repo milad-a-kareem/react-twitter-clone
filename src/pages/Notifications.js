@@ -12,10 +12,18 @@ import PageTitle from "../components/PageTitle";
 import CircleIconButton from "../components/CircleIconButton";
 import MobileMenuIcon from "../components/MobileMenuIcon";
 import { Link, useLocation } from "react-router-dom";
+import notifications from "../data/notifications";
+import Replay from "../components/Replay";
+import NotificationItem from "../components/NotificationItem";
 
 function Notifications() {
   const { pathname } = useLocation();
   const match = pathname === "/notifications/mentions" ? "m" : "a";
+
+  const notifs =
+    match === "m"
+      ? notifications.filter((n) => n.category === "mentions")
+      : notifications;
   return (
     <>
       <MainLeft>
@@ -31,7 +39,7 @@ function Notifications() {
               icon={<SettingsIcon />}
             />
           </div>
-          <div className="flex items-center h-14 ">
+          <div className="flex items-center h-14 grow max-w-full">
             <Link
               to="/notifications"
               className="grow flex justify-center items-center hover:bg-dark-gray/20 h-full relative font-semibold"
@@ -63,7 +71,25 @@ function Notifications() {
 
         {/* tabs */}
         <div className="flex flex-col w-full items-stretch justify-start ">
-          <div className="flex flex-col justify-start items-stretch"></div>
+          <div className="flex flex-col justify-start items-stretch">
+            {notifs.map((notif) => {
+              if (notif.category === "mentions") {
+                return (
+                  <Replay
+                    {...notif}
+                    key={Math.round(Math.random() * 1000000)}
+                  />
+                );
+              } else {
+                return (
+                  <NotificationItem
+                    {...notif}
+                    key={Math.round(Math.random() * 1000000)}
+                  />
+                );
+              }
+            })}
+          </div>
         </div>
 
         <div className="w-full h-14 flex xs:hidden"></div>

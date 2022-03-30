@@ -27,9 +27,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { navActions } from "../store/nav-slice";
 import ExtraNav from "./ExtraNav";
 
-function NavItem({ to, btnText, iconName, badge, dot }) {
+function NavItem({ to, btnText, iconName, badge, dot, end }) {
   let resolved = useResolvedPath(to);
-  const match = useMatch({ path: resolved.pathname, end: false });
+  const match = useMatch({ path: resolved.pathname, end: end ? false : true });
 
   const isNavOpen = useSelector((state) => state.nav.isOpen);
   const dispatch = useDispatch();

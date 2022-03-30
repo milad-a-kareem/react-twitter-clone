@@ -28,6 +28,7 @@ module.exports = {
         "light-red": "#fb9fa8",
         red: "rgb(244, 33, 46)",
         green: "rgb(0, 168, 124)",
+        purple: "rgb(121, 75, 196)",
       },
       screens: {
         short: { raw: "(max-height: 630px)" },
