@@ -14,10 +14,11 @@ import Settings from "./pages/Settings";
 import Header from "./components/Header";
 
 import TweetModal from "./Modals/TweetModal";
+import { createPortal } from "react-dom";
+import MessagesWindow from "./components/MessagesWindow";
 
 function App() {
   let location = useLocation();
-
   return (
     <div className="w-full min-h-screen bg-white  flex justify-center box-border">
       <div className="shrink max-w-[1300px] flex justify-center">
@@ -48,6 +49,8 @@ function App() {
           </main>
         </div>
       </div>
+      {location.pathname !== "/messages" &&
+        createPortal(<MessagesWindow />, document.getElementById("messages"))}
     </div>
   );
 }

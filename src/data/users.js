@@ -20,6 +20,7 @@ const users = [
     location: null,
     birthday: "1997-06-29",
     website: null,
+    verified: true,
   },
   {
     username: "gary_williams",
@@ -53,6 +54,7 @@ const users = [
     location: null,
     birthday: "1995-09-19",
     website: null,
+    verified: true,
   },
   {
     username: "clifton_addison",
@@ -75,6 +77,7 @@ const users = [
     location: null,
     birthday: "1978-07-22",
     website: null,
+    verified: true,
   },
   {
     username: "dennis_hite",
@@ -108,6 +111,7 @@ const users = [
     location: null,
     birthday: "1989-03-23",
     website: null,
+    verified: true,
   },
   {
     username: "lydia_reed",
