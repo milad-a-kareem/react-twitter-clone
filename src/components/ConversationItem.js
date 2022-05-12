@@ -4,10 +4,18 @@ import CircleIconButton from "./CircleIconButton";
 import { ReactComponent as VerifiedIcon } from "../assets/icons/verified.svg";
 import { ReactComponent as ElipsisIcon } from "../assets/icons/outline/ellipsis.svg";
 
-function ConversationItem({ user, messages }) {
+function ConversationItem({ user, messages, onClick }) {
   const t = timeConvertor(messages[0].time);
+  const openMenu = (e) => {
+    e.stopPropagation();
+  };
   return (
-    <div className="group p-4 flex justify-start items-start gap-3 hover:bg-xxlight-gray border-b border-xlight-gray cursor-pointer">
+    <div
+      onClick={() => {
+        onClick(user.username);
+      }}
+      className="group p-4 flex justify-start items-start gap-3 hover:bg-xxlight-gray  cursor-pointer"
+    >
       <div className="basis-12 shrink-0 w-12 h-12 rounded-full bg-blue overflow-hidden">
         <img
           src={user.profileImage}
@@ -21,9 +29,7 @@ function ConversationItem({ user, messages }) {
           <div className="w-10 grow max-w-full shrink flex items-center justify-start gap-1  overflow-hidden">
             <div className="  shrink flex justify-start gap-1 items-center  overflow-hidden">
               <div className="min-w-0 max-w-full gap-[2px] shrink flex justify-start items-center overflow-hidden">
-                <div className="break-words font-bold truncate ">
-                  {user.display_name}
-                </div>
+                <div className=" font-bold shrink-0 ">{user.display_name}</div>
 
                 {user.verified && (
                   <div className="fill-blue w-5 h-5 shrink-0 basis-auto mx-1">
@@ -48,11 +54,12 @@ function ConversationItem({ user, messages }) {
             <CircleIconButton
               color="dark-gray"
               hoverColor="blue"
+              onClick={openMenu}
               icon={<ElipsisIcon />}
             />
           </div>
         </div>
-        <div className="py-[2px] text-dark-gray">
+        <div className="py-[2px] text-dark-gray truncate">
           <span>{messages[0].message}</span>
         </div>
       </div>

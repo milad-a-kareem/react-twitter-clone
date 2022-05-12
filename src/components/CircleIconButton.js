@@ -1,6 +1,7 @@
 import React from "react";
 
-function CircleIconButton({ color, hoverColor, icon, onClick }) {
+function CircleIconButton({ color, hoverColor, icon, onClick, disabled }) {
+  const dis = disabled && disabled === true ? true : false;
   const classes = `
     w-9 
     h-9 
@@ -9,15 +10,19 @@ function CircleIconButton({ color, hoverColor, icon, onClick }) {
     rounded-full 
     hover:fill-${hoverColor} 
     hover:bg-${hoverColor}/10
+    disabled:opacity-50
+    disabled:hover:bg-white
     `;
   return (
     <>
       {onClick ? (
-        <button onClick={onClick} className={classes}>
+        <button onClick={onClick} className={classes} disabled={dis}>
           {icon}
         </button>
       ) : (
-        <button className={classes}>{icon}</button>
+        <button className={classes} disabled={dis}>
+          {icon}
+        </button>
       )}
     </>
   );

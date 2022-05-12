@@ -21,6 +21,9 @@ const users = [
     birthday: "1997-06-29",
     website: null,
     verified: true,
+    followers: 745,
+    following: 750,
+    joined: "2017-07-27T00:21:42.534Z",
   },
   {
     username: "gary_williams",
@@ -32,6 +35,9 @@ const users = [
     location: null,
     birthday: "1949-02-07",
     website: null,
+    followers: 7777,
+    following: 7777,
+    joined: "2010-01-17T00:21:42.534Z",
   },
   {
     username: "john_harvey",
@@ -43,6 +49,9 @@ const users = [
     location: null,
     birthday: "1986-01-03",
     website: null,
+    followers: 567,
+    following: 789,
+    joined: "2019-01-21T00:21:42.534Z",
   },
   {
     username: "christopher_mcmullen",
@@ -55,6 +64,9 @@ const users = [
     birthday: "1995-09-19",
     website: null,
     verified: true,
+    followers: 1876,
+    following: 1765,
+    joined: "2013-01-21T00:21:42.534Z",
   },
   {
     username: "clifton_addison",
@@ -66,6 +78,9 @@ const users = [
     location: null,
     birthday: "1991-12-29",
     website: null,
+    followers: 345,
+    following: 450,
+    joined: "2014-01-21T00:21:42.534Z",
   },
   {
     username: "patrick_hardesty",
@@ -78,6 +93,9 @@ const users = [
     birthday: "1978-07-22",
     website: null,
     verified: true,
+    followers: 345,
+    following: 450,
+    joined: "2016-01-21T00:21:42.534Z",
   },
   {
     username: "dennis_hite",
@@ -89,6 +107,9 @@ const users = [
     location: null,
     birthday: "1987-08-06",
     website: null,
+    followers: 345,
+    following: 450,
+    joined: "2018-01-21T00:21:42.534Z",
   },
   {
     username: "jonathon_graham",
@@ -100,6 +121,9 @@ const users = [
     location: null,
     birthday: "1990-12-11",
     website: null,
+    followers: 345,
+    following: 450,
+    joined: "2015-01-21T00:21:42.534Z",
   },
   {
     username: "danny_thompson",
@@ -112,6 +136,9 @@ const users = [
     birthday: "1989-03-23",
     website: null,
     verified: true,
+    followers: 345,
+    following: 450,
+    joined: "2015-01-21T00:21:42.534Z",
   },
   {
     username: "lydia_reed",
@@ -123,6 +150,9 @@ const users = [
     location: null,
     birthday: "1966-02-15",
     website: null,
+    followers: 345,
+    following: 450,
+    joined: "2015-01-21T00:21:42.534Z",
   },
   {
     username: "nasira_mansour",
@@ -134,6 +164,9 @@ const users = [
     location: null,
     birthday: "1993-06-01",
     website: null,
+    followers: 345,
+    following: 450,
+    joined: "2015-01-21T00:21:42.534Z",
   },
 ];
 
