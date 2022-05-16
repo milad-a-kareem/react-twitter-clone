@@ -13,6 +13,8 @@ const userSlice = createSlice({
     location: null,
     birthday: "1995-01-01",
     website: "https://miladkareem.com",
+    following: 128,
+    followers: 31,
   },
   reducers: {
     changeBday(state, { payload }) {
