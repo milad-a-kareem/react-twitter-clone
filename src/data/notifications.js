@@ -11,6 +11,7 @@ import img10 from "../assets/images/user(10).jpg";
 import img11 from "../assets/images/user(11).jpg";
 const notifications = [
   {
+    id: "0001",
     category: "mentions",
     user: {
       username: "nasira_mansour",
@@ -30,6 +31,7 @@ const notifications = [
     likes: 0,
   },
   {
+    id: "0002",
     category: "like",
     user: {
       username: "richard_cruz",
@@ -46,6 +48,7 @@ const notifications = [
       "Minimum viable product (MVP): is a version of a product with just enough features to be usable by early customers who can then provide feedback for future product development.",
   },
   {
+    id: "0003",
     category: "followU",
     users: [
       {
@@ -73,6 +76,7 @@ const notifications = [
     ],
   },
   {
+    id: "0004",
     category: "retweet",
     user: {
       username: "gary_williams",
@@ -89,6 +93,7 @@ const notifications = [
       "Minimum viable product (MVP): is a version of a product with just enough features to be usable by early customers who can then provide feedback for future product development.",
   },
   {
+    id: "0005",
     category: "followIt",
     users: [
       {
@@ -128,6 +133,7 @@ const notifications = [
   },
 
   {
+    id: "0006",
     category: "mentions",
     user: {
       username: "dennis_hite",

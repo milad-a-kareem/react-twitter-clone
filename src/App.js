@@ -21,11 +21,11 @@ function App() {
   let location = useLocation();
   return (
     <div className="w-full min-h-screen bg-white  flex justify-center box-border">
-      <div className="shrink max-w-[1300px] flex justify-center">
-        <div className="shrink w-full min-h-full flex justify-center">
+      <div className="grow max-w-[1300px] flex justify-center">
+        <div className=" w-full min-h-full flex justify-center sm:w-auto">
           <Header />
 
-          <main className="min-w-0 max-w-full w-full  md:grow-[2] min-h-full  flex   lg:w-[920px] lg2:w-[990px] justify-between ">
+          <main className="min-w-0 grow items-stretch sm:items-start max-w-full w-full  md:grow-[2] min-h-full  flex  sm:shrink lg:grow-0 sm:max-w-[auto]  lg:w-[920px] lg2:w-[990px] md:justify-between ">
             <Routes location={location.state?.isTweetOpen || location}>
               <Route path="/" element={<Navigate to="/home" />} />
               <Route path="/home" element={<Home />} />

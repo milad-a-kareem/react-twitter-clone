@@ -109,7 +109,7 @@ function MobileMenuComponent({ onCloseHandler }) {
           icon={<TopicsIcon className="w-full h-full" />}
         />
         <CustomLink
-          to="/bookmars"
+          to="/bookmarks"
           label="Bookmarks"
           icon={<BookmarksIcon className="w-full h-full" />}
         />
@@ -210,23 +210,29 @@ function DataSaver() {
   };
   return (
     <div className="p-4 flex items-center justify-between  text-sm">
-      <div className="flex items-center justify-start gap-3">
+      <Link
+        to="/settings/data"
+        className="flex grow items-center justify-start gap-3"
+      >
         <div className="flex h-[19px] w-[18.75px]">
           {!isOn && <DataSaverIcon className="w-full h-full" />}
           {isOn && <DataSaverOnIcon className="w-full h-full" />}
         </div>
         <div>Data Saver</div>
-      </div>
-      <div onClick={toggle} className="flex shrink-0 items-center relative">
+      </Link>
+      <div
+        onClick={toggle}
+        className="flex shrink-0 items-center relative ml-5"
+      >
         <div className="w-10 h-[14px] bg-dark-gray/70 flex rounded-full overflow-hidden">
           <div
             ref={bgRef}
-            className="bg-blue w-0 h-full transition-all duration-500 ease-in-out"
+            className="bg-blue w-0 h-full transition-all duration-400 ease-in-out"
           ></div>
         </div>
         <div
           ref={switchRef}
-          className="w-5 h-5 shrink-0 absolute left-0 bg-white shadow-s rounded-full overflow-hidden transition-all duration-500 ease-in-out"
+          className="w-5 h-5 shrink-0 absolute left-0 bg-white shadow-s rounded-full overflow-hidden transition-all duration-400 ease-in-out"
         ></div>
       </div>
     </div>

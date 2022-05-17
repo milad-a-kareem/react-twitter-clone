@@ -74,19 +74,9 @@ function Notifications() {
           <div className="flex flex-col justify-start items-stretch">
             {notifs.map((notif) => {
               if (notif.category === "mentions") {
-                return (
-                  <Replay
-                    {...notif}
-                    key={Math.round(Math.random() * 1000000)}
-                  />
-                );
+                return <Replay {...notif} key={notif.id} />;
               } else {
-                return (
-                  <NotificationItem
-                    {...notif}
-                    key={Math.round(Math.random() * 1000000)}
-                  />
-                );
+                return <NotificationItem {...notif} key={notif.id} />;
               }
             })}
           </div>
