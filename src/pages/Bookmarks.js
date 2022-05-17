@@ -40,7 +40,6 @@ function Bookmarks() {
           </div>
         </BackdropBlur>
         <div className="w-full px-[30px] flex flex-col items-stretch">
-          <div className="max-w-[600px] flex shrink basis-0 h-1"></div>
           <div className="max-w-[380px] w-full mx-auto mb-9">
             <img src={bookImage} alt="" className="py-10" />
             <div className="flex flex-col ">

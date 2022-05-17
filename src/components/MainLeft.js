@@ -5,7 +5,7 @@ function MainLeft({ children }) {
     min-w-0
     w-full
     grow
-    sm:w-[580px]
+    sm:w-[550px]
     md:w-[600px]
     lg:grow-0
     max-w-[600px]
