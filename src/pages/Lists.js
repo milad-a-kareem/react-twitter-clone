@@ -84,6 +84,9 @@ function Lists() {
           user={users[6]}
           title="KeyU"
         />
+        <div className="flex text-blue text-sm cursor-pointer px-4 py-3 hover:bg-xlight-gray">
+          Show more
+        </div>
 
         <Seperator />
         <h2 className="text-xl font-bold px-4 py-3 ">Your Lists</h2>
