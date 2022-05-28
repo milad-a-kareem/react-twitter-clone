@@ -29,13 +29,13 @@ function Accounts() {
           <div className="bg-white rounded-xl h-fit w-[300px] fixed shadow-a bottom-24 z-30 cursor-default ml-1 xl:-ml-6 pb-3">
             <Triangle className="w-[24px] h-4 rotate-180 fill-white absolute bottom-[-11px] left-5 xl:left-1/2 xl:-translate-x-1/2 drop-shadow-a -z-10" />
             <div className="p-4 flex items-center border-b border-xlight-gray/70">
-              <div className="rounded-full w-12 h-12 bg-blue overflow-clip">
+              <div className="rounded-full w-12 h-12 bg-blue overflow-hidden">
                 <img
                   width="100%"
                   height="100%"
                   src={user.profileImage}
                   alt=""
-                  srcSet=""
+                  className="rounded-full"
                 />
               </div>
 
@@ -69,7 +69,7 @@ function Accounts() {
         )}
         <div className="rounded-full my-4 hover:bg-black/10">
           <div className="p-4 flex items-center">
-            <div className="rounded-full w-10 h-10 bg-blue overflow-clip">
+            <div className="rounded-full w-10 h-10 bg-blue overflow-hidden">
               <img
                 width="100%"
                 height="100%"

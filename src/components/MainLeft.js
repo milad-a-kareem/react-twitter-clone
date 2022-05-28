@@ -14,6 +14,7 @@ function MainLeft({ children }) {
     flex
     flex-col
     justify-start
+    min-h-full
     `;
   return <div className={classes}>{children}</div>;
 }

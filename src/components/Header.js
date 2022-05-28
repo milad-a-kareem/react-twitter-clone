@@ -59,7 +59,7 @@ function Header() {
                 <span className="hidden xl:flex text-white text-lg font-bold ">
                   Tweet
                 </span>
-                <div className="w-6 flex xl:hidden">
+                <div className="w-6 h-6 flex shrink-0 xl:hidden">
                   <Tweet className="fill-white" />
                 </div>
               </div>
