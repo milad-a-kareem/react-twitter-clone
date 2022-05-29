@@ -15,6 +15,7 @@ const userSlice = createSlice({
     website: "https://miladkareem.com",
     following: 128,
     followers: 31,
+    joined: "2015-11-01T00:21:42.534Z",
     tweets: [
       {
         username: "clifton_addison",

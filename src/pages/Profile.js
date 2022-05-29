@@ -7,15 +7,30 @@ import MainLeft from "../components/MainLeft";
 import PageTitle from "../components/PageTitle";
 
 import { ReactComponent as BackIcon } from "../assets/icons/outline/left-arrow.svg";
+import { ReactComponent as LinkIcon } from "../assets/icons/outline/link.svg";
+import { ReactComponent as BaloonIcon } from "../assets/icons/outline/baloon.svg";
+import { ReactComponent as CalendarIcon } from "../assets/icons/outline/calendar.svg";
+
 import MainRight from "../components/MainRight";
 import SearchBar from "../components/SearchBar";
 import TrendsForYou from "../components/TrendsForYou";
 import WhoToFollow from "../components/WhoToFollow";
 import FooterLinks from "../components/FooterLinks";
+import { timeConvertor } from "../utility/time";
 
 function Profile() {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
+  const dateOptions = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  const dateOptions2 = {
+    year: "numeric",
+    month: "long",
+    // day: "numeric",
+  };
   return (
     <>
       <MainLeft>
@@ -75,8 +90,61 @@ function Profile() {
               </div>
             </div>
             <div className="flex mb-3 text-sm text-black">{user.bio}</div>
-            <div className="flex mb-3"></div>
-            <div className="flex"></div>
+            <div className="flex mb-3 flex-wrap ">
+              {user.website && (
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href={user.website}
+                  className="group flex gap-1 mr-3"
+                >
+                  <div className="w-5 h-5 shrink-0 fill-dark-gray">
+                    <LinkIcon />
+                  </div>
+                  <div className="text-blue text-[15px] group-hover:underline">
+                    {new URL(user.website).hostname}
+                  </div>
+                </a>
+              )}
+              {user.birthday && (
+                <div className=" flex gap-1 mr-3">
+                  <div className="w-5 h-5 shrink-0 fill-dark-gray">
+                    <BaloonIcon />
+                  </div>
+                  <div className=" text-[15px] text-dark-gray">
+                    Born{" "}
+                    {new Date(user.birthday).toLocaleString(
+                      "en-US",
+                      dateOptions
+                    )}
+                  </div>
+                </div>
+              )}
+              {user.joined && (
+                <div className=" flex gap-1 mr-3">
+                  <div className="w-5 h-5 shrink-0 fill-dark-gray">
+                    <CalendarIcon />
+                  </div>
+                  <div className=" text-[15px] text-dark-gray">
+                    Joined{" "}
+                    {new Date(user.joined).toLocaleString(
+                      "en-US",
+                      dateOptions2
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
+            <div className="flex flex-wrap">
+              <div className="mr-5 text-sm text-dark-gray">
+                <span className="font-bold text-black">{user.following}</span>{" "}
+                Following
+              </div>
+              <div className=" text-sm text-dark-gray">
+                <span className="font-bold text-black">{user.followers}</span>{" "}
+                Followers
+              </div>
+            </div>
           </div>
         </div>
       </MainLeft>
