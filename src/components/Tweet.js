@@ -24,6 +24,7 @@ const Tweet = ({
   retweets,
   replays,
   images,
+  hashtags,
 }) => {
   const t = timeConvertor(time);
   const [likess, setLikess] = useState(likes);
@@ -39,7 +40,7 @@ const Tweet = ({
           className="w-full h-full"
         />
       </div>
-      <div className="min-w-0 flex flex-col justify-start items-stretch max-w-full">
+      <div className="min-w-0 flex flex-col justify-start items-stretch max-w-full grow">
         <div className="max-w-full flex justify-between items-center h-6 shrink ">
           <div className="w-10 grow max-w-full shrink flex items-center justify-start gap-1  overflow-hidden">
             <div className="  shrink flex justify-start gap-1 items-center  overflow-hidden">
@@ -73,8 +74,23 @@ const Tweet = ({
             icon={<ElipsisIcon />}
           />
         </div>
-        <div className="py-1">
-          <span>{tweetText}</span>
+        <div className="py-1 text-[15px]">
+          <span style={{ whiteSpace: "pre-wrap" }} className="break-normal">
+            {tweetText}
+          </span>
+          <br />
+          {hashtags && hashtags.length > 0 && (
+            <div className="flex flex-wrap gap-1">
+              {hashtags.map((h) => (
+                <div
+                  className="text-blue hover:underline cursor-pointer"
+                  key={h}
+                >
+                  {h}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
         {images && images.length > 0 && (
           <div className="rounded-[15px] overflow-hidden my-2">

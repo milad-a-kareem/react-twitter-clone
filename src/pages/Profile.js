@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link as div, useNavigate } from "react-router-dom";
 import BackdropBlur from "../components/BackdropBlur";
 import CircleIconButton from "../components/CircleIconButton";
 import MainLeft from "../components/MainLeft";
@@ -17,10 +17,12 @@ import TrendsForYou from "../components/TrendsForYou";
 import WhoToFollow from "../components/WhoToFollow";
 import FooterLinks from "../components/FooterLinks";
 import { timeConvertor } from "../utility/time";
+import Tweet from "../components/Tweet";
 
 function Profile() {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
+  const [selectedTab, setSelectedTab] = useState("001");
   const dateOptions = {
     year: "numeric",
     month: "long",
@@ -30,6 +32,20 @@ function Profile() {
     year: "numeric",
     month: "long",
     // day: "numeric",
+  };
+  const tabs = [
+    { id: "001", title: "Tweets", content: [...user.tweets] },
+    { id: "002", title: "Tweets & Replays", content: [...user.tweets] },
+    {
+      id: "003",
+      title: "Media",
+      content: user.tweets.filter((t) => t.images && t.images.length > 0),
+    },
+    { id: "004", title: "Likes", content: [] },
+  ];
+
+  const onChangeTab = (id) => {
+    setSelectedTab(id);
   };
   return (
     <>
@@ -82,7 +98,7 @@ function Profile() {
               </div>
             </div>
             <div className="flex flex-col mt-1 mb-3 items-stretch">
-              <div className="flex text-black font-bold text-lg">
+              <div className="flex text-black font-bold text-xl">
                 {user.display_name}
               </div>
               <div className="flex text-sm text-dark-gray">
@@ -146,6 +162,42 @@ function Profile() {
               </div>
             </div>
           </div>
+        </div>
+        <div className="flex items-center h-14 max-w-full grow-0 border-b border-xlight-gray">
+          {tabs.map((tab) => {
+            return (
+              <div
+                onClick={() => {
+                  onChangeTab(tab.id);
+                }}
+                key={tab.id}
+                className="grow flex justify-center items-center hover:bg-dark-gray/20 h-full font-semibold cursor-pointer"
+              >
+                <div className="flex h-full items-center justify-center relative">
+                  {selectedTab === tab.id ? (
+                    <span>{tab.title}</span>
+                  ) : (
+                    <span className="text-dark-gray">{tab.title}</span>
+                  )}
+                  {selectedTab === tab.id && (
+                    <div className="absolute bottom-0 h-1 min-w-[56px] w-full rounded-full bg-blue"></div>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        <div className="flex flex-col items-stretch w-full">
+          {tabs
+            .filter((t) => t.id === selectedTab)[0]
+            .content.map((t) => {
+              return (
+                <Tweet
+                  {...t}
+                  key={Math.round(Math.random() * 10000000000000)}
+                />
+              );
+            })}
         </div>
       </MainLeft>
       <MainRight>
